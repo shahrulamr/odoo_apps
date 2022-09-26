@@ -9,7 +9,7 @@
     'summary': 'Odoo Web Console',
     'description': 'Run and compile python with Odoo environments',
     'license': 'LGPL-3',
-    'depends': ['base'],
+    'depends': ['base','web'],
     'data': [
         'security/ir.model.access.csv',
         'views/assets.xml',
@@ -22,5 +22,11 @@
     'qweb': [],
     'application': True,
     'installable': True,
-    'auto_install': False
+    'auto_install': False,
+    'assets': {
+        'web.assets_backend': [
+            'sh_odoo_web_console/static/src/css/style.css',
+            'sh_odoo_web_console/static/src/js/sh_odoo_web_console.js',
+        ],
+    }
 }

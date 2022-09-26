@@ -15,14 +15,22 @@ class ShOdooWebConsole(models.TransientModel):
 
     def multiline_eval(self, expr, context={}):
         tree = ast.parse(expr)
-        eval_expr = ast.Expression(tree.body[-1].value)
-        exec_expr = ast.Module(tree.body[:-1])
+        eval_exprs = []
+        exec_exprs = []
 
         old_stdout = sys.stdout
         sys.stdout = mystdout = StringIO()
 
+        for module in tree.body:
+            if isinstance(module, ast.Expr):
+                eval_exprs.append(module.value)
+            else:
+                exec_exprs.append(module)
+        exec_expr = ast.Module(exec_exprs, type_ignores=[])
         exec(compile(exec_expr, 'file', 'exec'), context)
-        eval(compile(eval_expr, 'file', 'eval'), context)
+        results = []
+        for eval_expr in eval_exprs:
+            results.append(eval(compile(ast.Expression((eval_expr)), 'file', 'eval'), context))
 
         sys.stdout = old_stdout
         message = mystdout.getvalue()
