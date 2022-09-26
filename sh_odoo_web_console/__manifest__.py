@@ -15,6 +15,9 @@
         'views/assets.xml',
         'views/sh_odoo_web_console_views.xml',
     ],
+    'images': [
+        'static/description/main_screenshot.png',
+    ],
     'demo': [],
     'qweb': [],
     'application': True,
