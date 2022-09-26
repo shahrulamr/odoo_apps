@@ -1,5 +1,5 @@
 ====================================
-Odoo 14 Web Console
+Odoo Web Console
 ====================================
 
 This Module will help to Run and compile python with Odoo environments

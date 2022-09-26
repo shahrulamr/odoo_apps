@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Odoo 14 Web Console',
+    'name': 'Odoo Web Console',
     'version': '14.0.1.0.0',
     'category': 'Technical',
     'author': 'ShahrulAmr',
     'maintainer': 'ShahrulAmr',
-    'website': 'https://www.linkedin.com/in/shahrul-amirudin',
+    'website': 'https://github.com/shahrulamr',
     'summary': 'Odoo Web Console',
     'description': 'Run and compile python with Odoo environments',
     'license': 'LGPL-3',
